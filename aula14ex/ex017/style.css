@@ -17,8 +17,39 @@ section{
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
+input#numero {
+    width: 40px;
+    height: 18px;
+    border-radius: 6px;
+}
+
+input#tabuada-btn {
+    border-radius: 15px;
+    padding: 5px 20px;
+    border: #28a745 solid 2px;
+    color: #28a745;
+    transition: .3s;
+}
+
+input#tabuada-btn:hover {
+    color: #ffffff;
+    background: #28a745;
+    transition: .3s;
+    cursor: pointer;
+}
+
 footer{
     color: white;
     text-align: center;
     font-style: italic;
+}
+
+@media screen and (max-width: 550px){
+    section {
+        width: 250px;
+    }
+
+    input#tabuada-btn {
+        margin-top: 10px;
+    }
 }
