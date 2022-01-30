@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contagem - Yudi Takeda</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Vamos contar</h1>
+    </header>
+    <section>
+        <div>
+            <p>
+                <label for="inicio">Início: </label>
+                <input class="number" type="number" name="inicio" id="inicio">
+            </p>
+            <p>
+                <label for="fim">Fim: </label>
+                <input class="number" type="number" name="fim" id="fim">
+            </p>
+            <p>
+                <label for="passo">Passo: </label>
+                <input class="number" type="number" name="passo" id="passo">
+            </p>
+            <p>
+                <input id="contar-btn" type="submit" value="Contar" onclick="contar()">
+            </p>
+        </div>
+        <div id="res">
+            Preparando a contagem...
+        </div>
+    </section>
+    <footer>
+        <p id="copyright">&copy; Yudi Takeda</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrangeiro</title>
+</head>
+<body>
+    <h1>Sistema de verificação se é ou não estrangeiro</h1>
+    <p>Insira seu pais atual: <input type="text" name="country" id="country"> <input type="button" value="Verificar" onclick="verificar()"></p>
+    <div id="res">
+
+    </div>
+    <script>
+        function verificar() {
+            let pais = window.document.querySelector('input#country')
+            let res = window.document.querySelector('div#res')
+            res.innerHTML = `<p>Pais atual é <strong>${pais.value}</strong></p>`
+            if(pais.value.toLowerCase() == 'brasil') {
+                res.innerHTML += `<p>É <strong>brasileiro!</strong></p>`
+            } else {
+                res.innerHTML += `<p>É <strong>estrangeiro!</strong></p>`
+            }
+        }
+    </script>
+</body>
+</html>
