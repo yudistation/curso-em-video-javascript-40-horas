@@ -1,6 +1,6 @@
+var numberInput = document.querySelector("input#numero")
 var numerosAdded = []
 function adicionar() {
-    var numberInput = document.querySelector("input#numero")
     var numero = Number(numberInput.value)
     var adicionado = document.querySelector("select#adicionado")
     if(numero < 1 || numero > 100 || numero.length == 0) {
@@ -18,72 +18,82 @@ function adicionar() {
             res.innerHTML = ""
         }
     }
+    numberInput.value = ''
+    numberInput.focus()
 }
 
 function finalizar() {
-    var res = document.querySelector("div#res")
-    res.innerHTML = ""
-    qtdeVal()
-    maiorVal()
-    menorVal()
-    somarVal()
-    mediaVal()
+    if(numerosAdded.length == 0) {
+        alert('Insira valores antes de finalizar!')
+    } else {
+        var res = document.querySelector("div#res")
+        res.innerHTML = ""
+        qtdeVal()
+        maiorVal()
+        menorVal()
+        somarVal()
+        mediaVal()
 
-    function qtdeVal() {
-        let qtdeAdd = document.createElement("p")
-        qtdeAdd.innerHTML = `Ao todo, temos ${numerosAdded.length} números cadastrados.`
-        res.appendChild(qtdeAdd)
-    }
-    
-    function maiorVal() {
-        let maiorValor = document.createElement("p")
-        for(let i = 0; i < numerosAdded.length; i++) {
-            for(let j = 0; j < numerosAdded.length; j++) {
-                if(numerosAdded[j] < numerosAdded[j + 1]) {
-                    let aux = numerosAdded[j + 1]
-                    numerosAdded[j + 1] = numerosAdded[j]
-                    numerosAdded[j] = aux
-                }
-            }
-        } 
-        maiorValor.innerHTML = `O maior valor informado foi ${numerosAdded[0]}`
-        res.appendChild(maiorValor)
-    }
-    
-    function menorVal() {
-        let menorValor = document.createElement("p")
-        for(let i = 0; i < numerosAdded.length; i++) {
-            for(let j = 0; j < numerosAdded.length; j++) {
-                if(numerosAdded[j] < numerosAdded[j + 1]) {
-                    let aux = numerosAdded[j + 1]
-                    numerosAdded[j + 1] = numerosAdded[j]
-                    numerosAdded[j] = aux
-                }
-            }
-        } 
-        menorValor.innerHTML = `O menor valor informado foi ${numerosAdded[numerosAdded.length - 1]}`
-        res.appendChild(menorValor)
-    }
-    
-    function somarVal() {
-        let somarValor = document.createElement("p")
-        var soma = 0
-        for (key in numerosAdded) {
-            soma += numerosAdded[key]
+        function qtdeVal() {
+            let qtdeAdd = document.createElement("p")
+            qtdeAdd.innerHTML = `Ao todo, temos ${numerosAdded.length} números cadastrados.`
+            res.appendChild(qtdeAdd)
         }
-        somarValor.innerHTML = `Somando todos os valores, temos ${soma}`
-        res.appendChild(somarValor)
-    }
+        
+        function maiorVal() {
+            let maiorValor = document.createElement("p")
+            for(let i = 0; i < numerosAdded.length; i++) {
+                for(let j = 0; j < numerosAdded.length; j++) {
+                    if(numerosAdded[j] < numerosAdded[j + 1]) {
+                        let aux = numerosAdded[j + 1]
+                        numerosAdded[j + 1] = numerosAdded[j]
+                        numerosAdded[j] = aux
+                    }
+                }
+            } 
+            maiorValor.innerHTML = `O maior valor informado foi ${numerosAdded[0]}`
+            res.appendChild(maiorValor)
+        }
+        
+        function menorVal() {
+            let menorValor = document.createElement("p")
+            for(let i = 0; i < numerosAdded.length; i++) {
+                for(let j = 0; j < numerosAdded.length; j++) {
+                    if(numerosAdded[j] < numerosAdded[j + 1]) {
+                        let aux = numerosAdded[j + 1]
+                        numerosAdded[j + 1] = numerosAdded[j]
+                        numerosAdded[j] = aux
+                    }
+                }
+            } 
+            menorValor.innerHTML = `O menor valor informado foi ${numerosAdded[numerosAdded.length - 1]}`
+            res.appendChild(menorValor)
+        }
+        
+        function somarVal() {
+            let somarValor = document.createElement("p")
+            let soma = 0
+            for (key in numerosAdded) {
+                soma += numerosAdded[key]
+            }
+            somarValor.innerHTML = `Somando todos os valores, temos ${soma}`
+            res.appendChild(somarValor)
+        }
 
-    function mediaVal() {
-        let mediaValor = document.createElement("p")
-        let soma = 0
-        for (key in numerosAdded) {
-            soma += numerosAdded[key]
+        function mediaVal() {
+            let mediaValor = document.createElement("p")
+            let soma = 0
+            for (key in numerosAdded) {
+                soma += numerosAdded[key]
+            }
+            let media = (soma / numerosAdded.length).toFixed(2)
+            mediaValor.innerHTML = `A média dos valores digitados é ${media}`
+            res.appendChild(mediaValor)
+            console.log(numerosAdded)
         }
-        let media = (soma / numerosAdded.length).toFixed(2)
-        mediaValor.innerHTML = `A média dos valores digitados é ${media}`
-        res.appendChild(mediaValor)
-        console.log(numerosAdded)
     }
 }
+
+let anoAtual = new Date().getFullYear()
+let copyright = document.getElementById('copyright')
+copyright.innerHTML = `&copy; ${anoAtual} YudiStation`
